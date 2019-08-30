@@ -1,25 +1,38 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { SignoutComponent } from './signout.component';
 
+import { ComponentFixture, async, TestBed } from '@angular/core/testing';
+import { DebugElement } from '@angular/core';
+
 describe('SignoutComponent', () => {
-  let component: SignoutComponent;
-  let fixture: ComponentFixture<SignoutComponent>;
+
+  let signoutComponent: SignoutComponent;
+  let signoutFixture: ComponentFixture<SignoutComponent>;
+  let debugElement: DebugElement;
+  let htmlElement: HTMLElement;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SignoutComponent ]
-    })
-    .compileComponents();
+      declarations: [SignoutComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SignoutComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    signoutFixture = TestBed.createComponent(SignoutComponent);
+    signoutComponent = signoutFixture.componentInstance;
+
+    debugElement = signoutFixture.debugElement;
+    htmlElement = debugElement.nativeElement;
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('Should exist/be defined', () => {
+    expect(signoutComponent)
+      .toBeDefined();
   });
+
+  it('Should be built/compiled', () => {
+    expect(signoutComponent
+      instanceof SignoutComponent)
+      .toBeTruthy();
+  });
+
 });
