@@ -35,12 +35,12 @@ describe('AdminComponent', () => {
     htmlElement = debugElement.nativeElement;
   });
 
-  it('Should be created/defined', () => {
+  it('Should exist/be defined', () => {
     expect(adminComponent)
       .toBeDefined();
   });
 
-  it('Should exist/be compiled', () => {
+  it('Should be built/compiled', () => {
     expect(adminComponent
       instanceof AdminComponent)
       .toBeTruthy();
