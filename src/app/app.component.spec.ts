@@ -53,12 +53,12 @@ describe('Application Component', () => {
     htmlElement = debugElement.nativeElement;
   });
 
-  it('Should be created/defined', () => {
+  it('Should exist/be defined', () => {
     expect(applicationComponent)
       .toBeDefined();
   });
 
-  it('Should exist/be compiled', () => {
+  it('Should be built/compiled', () => {
     expect(applicationComponent
       instanceof AppComponent)
       .toBeTruthy();
