@@ -6,7 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatDialogModule, MatSnackBarModule } from '@angular/material';
 import { DebugElement } from '@angular/core';
 
-fdescribe('AdminComponent', () => {
+describe('AdminComponent', () => {
 
   let adminComponent: AdminComponent;
   let adminFixture: ComponentFixture<AdminComponent>;
