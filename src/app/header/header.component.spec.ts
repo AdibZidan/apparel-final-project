@@ -11,7 +11,7 @@ import { MatMenuModule, MatDividerModule, MatListModule, MatDialogModule } from 
 
 import { SESSION_STORAGE } from 'angular-webstorage-service';
 
-fdescribe('HeaderComponent', () => {
+describe('HeaderComponent', () => {
 
   let headerComponent: HeaderComponent;
   let headerFixture: ComponentFixture<HeaderComponent>;
