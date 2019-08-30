@@ -15,7 +15,7 @@ describe('Authentication Guard', () => {
     });
   });
 
-  it('Should be created/defined',
+  it('Should exist/be defined',
     inject([AuthenticationGuard],
       (activationGuard: AuthenticationGuard) => {
         expect(activationGuard).toBeDefined();
