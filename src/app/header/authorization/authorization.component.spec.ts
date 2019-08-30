@@ -1,25 +1,46 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { AuthorizationComponent } from './authorization.component';
 
+import { ComponentFixture, async, TestBed } from '@angular/core/testing';
+import { DebugElement } from '@angular/core';
+
+import { MatMenuModule, MatDialogModule } from '@angular/material';
+
+
 describe('AuthorizationComponent', () => {
-  let component: AuthorizationComponent;
-  let fixture: ComponentFixture<AuthorizationComponent>;
+
+  let authorizationComponent: AuthorizationComponent;
+  let authorizationFixture: ComponentFixture<AuthorizationComponent>;
+
+  let debugElement: DebugElement;
+  let htmlElement: HTMLElement;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AuthorizationComponent ]
-    })
-    .compileComponents();
+      imports: [
+        MatMenuModule,
+        MatDialogModule
+      ],
+      declarations: [AuthorizationComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AuthorizationComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    authorizationFixture = TestBed.createComponent(AuthorizationComponent);
+    authorizationComponent = authorizationFixture.componentInstance;
+
+    debugElement = authorizationFixture.debugElement;
+    htmlElement = debugElement.nativeElement;
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('Should exist/be defined', () => {
+    expect(authorizationComponent)
+      .toBeDefined();
   });
+
+  it('Should be built/compiled', () => {
+    expect(authorizationComponent
+      instanceof AuthorizationComponent)
+      .toBeTruthy();
+  });
+
 });
