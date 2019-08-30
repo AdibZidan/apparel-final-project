@@ -1,12 +1,32 @@
-import { TestBed } from '@angular/core/testing';
-
 import { LoginService } from './login.service';
 
-describe('LoginService', () => {
-  beforeEach(() => TestBed.configureTestingModule({}));
+import { TestBed, async } from '@angular/core/testing';
 
-  it('should be created', () => {
-    const service: LoginService = TestBed.get(LoginService);
-    expect(service).toBeTruthy();
+import { HttpClientModule } from '@angular/common/http';
+
+describe('LoginService', () => {
+
+  let loginService: LoginService;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      imports: [HttpClientModule]
+    }).compileComponents();
+  }));
+
+  beforeEach(() => {
+    loginService = TestBed.get(LoginService);
   });
+
+  it('Should exist/be defined', () => {
+    expect(loginService)
+      .toBeDefined();
+  });
+
+  it('Should be built/compiled', () => {
+    expect(loginService
+      instanceof LoginService)
+      .toBeTruthy();
+  });
+
 });
