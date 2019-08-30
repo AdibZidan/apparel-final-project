@@ -3,7 +3,7 @@ import { async, TestBed } from '@angular/core/testing';
 
 import { HttpClientModule } from '@angular/common/http';
 
-describe('BasketService', () => {
+describe('Basket Service', () => {
 
   let basketService: BasketService;
 
