@@ -1,12 +1,11 @@
 import { AuthorizationComponent } from './authorization.component';
-
 import { ComponentFixture, async, TestBed } from '@angular/core/testing';
+
 import { DebugElement } from '@angular/core';
 
 import { MatMenuModule, MatDialogModule } from '@angular/material';
 
-
-describe('AuthorizationComponent', () => {
+describe('Authorization Component', () => {
 
   let authorizationComponent: AuthorizationComponent;
   let authorizationFixture: ComponentFixture<AuthorizationComponent>;
