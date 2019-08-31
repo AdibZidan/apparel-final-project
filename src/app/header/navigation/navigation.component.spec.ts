@@ -6,11 +6,13 @@ import { DebugElement } from '@angular/core';
 import { SearchComponent } from '../search/search.component';
 import { AuthorizationComponent } from '../authorization/authorization.component';
 import { BasketComponent } from '../basket/basket.component';
+
+import { RouterTestingModule } from '@angular/router/testing';
 import { MatMenuModule, MatDividerModule, MatListModule, MatDialogModule } from '@angular/material';
 
 import { SESSION_STORAGE } from 'angular-webstorage-service';
 
-describe('NavigationComponent', () => {
+describe('Navigation Component', () => {
 
   let navigationComponent: NavigationComponent;
   let navigationFixture: ComponentFixture<NavigationComponent>;
@@ -21,6 +23,7 @@ describe('NavigationComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
+        RouterTestingModule,
         MatMenuModule,
         MatDividerModule,
         MatListModule,

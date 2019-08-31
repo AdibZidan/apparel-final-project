@@ -3,6 +3,7 @@ import { ComponentFixture, async, TestBed } from '@angular/core/testing';
 
 import { DebugElement } from '@angular/core';
 
+import { RouterTestingModule } from '@angular/router/testing';
 import { MatMenuModule, MatDialogModule } from '@angular/material';
 
 describe('Authorization Component', () => {
@@ -16,6 +17,7 @@ describe('Authorization Component', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
+        RouterTestingModule,
         MatMenuModule,
         MatDialogModule
       ],

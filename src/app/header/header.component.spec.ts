@@ -7,11 +7,13 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { SearchComponent } from './search/search.component';
 import { AuthorizationComponent } from './authorization/authorization.component';
 import { BasketComponent } from './basket/basket.component';
+
+import { RouterTestingModule } from '@angular/router/testing';
 import { MatMenuModule, MatDividerModule, MatListModule, MatDialogModule } from '@angular/material';
 
 import { SESSION_STORAGE } from 'angular-webstorage-service';
 
-describe('HeaderComponent', () => {
+describe('Header Component', () => {
 
   let headerComponent: HeaderComponent;
   let headerFixture: ComponentFixture<HeaderComponent>;
@@ -22,6 +24,7 @@ describe('HeaderComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
+        RouterTestingModule,
         MatMenuModule,
         MatDividerModule,
         MatListModule,
