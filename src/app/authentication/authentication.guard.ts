@@ -19,7 +19,7 @@ export class AuthenticationGuard implements CanActivate {
     return this.isLoggedIn();
   }
 
-  public isLoggedIn() {
+  public isLoggedIn(): boolean {
     if (this.authenticationService.isLoggedIn()) {
       return true;
     } else {
