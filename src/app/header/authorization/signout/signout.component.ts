@@ -5,11 +5,11 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './signout.component.html',
   styleUrls: ['./signout.component.scss']
 })
+
 export class SignoutComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit(): void { }
 
 }
