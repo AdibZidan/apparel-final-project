@@ -12,24 +12,23 @@ import { MatDialogConfig, MatDialog } from '@angular/material';
 })
 
 export class AuthorizationComponent implements OnInit {
-  private dialogConfig = new MatDialogConfig();
 
-  constructor(private dialog: MatDialog) { }
+  public matDialogConfig = new MatDialogConfig();
 
-  ngOnInit() { }
+  constructor(private matDialog: MatDialog) { }
 
-  onClick(): void {
-    this.dialogConfig.autoFocus = true;
-    this.dialogConfig.disableClose = true;
-    this.dialog.open(LoginComponent, this.dialogConfig);
+  ngOnInit(): void { }
+
+  public onClick(): void {
+    this.matDialogConfig.autoFocus = true;
+    this.matDialogConfig.disableClose = true;
+    this.matDialog.open(LoginComponent, this.matDialogConfig);
   }
 
-  onSignUpClick(): void {
-    this.dialog.open(SignupComponent, this.dialogConfig);
-
-    this.dialogConfig.autoFocus = true;
-    this.dialogConfig.disableClose = true;
-
+  public onSignUpClick(): void {
+    this.matDialogConfig.autoFocus = true;
+    this.matDialogConfig.disableClose = true;
+    this.matDialog.open(SignupComponent, this.matDialogConfig);
   }
 
 }
