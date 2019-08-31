@@ -2,21 +2,22 @@
   <span>X</span>
 </button>
 
-<form [formGroup]="loginForm" (ngSubmit)='onSubmit()'>
+<form [formGroup]="logInForm" (ngSubmit)='onSubmit()'>
 
   <div class="text">
     Sign in:
   </div>
 
   <div class="form-group">
-    <input class="form-control" type="text" class="username" formControlName="username" placeholder="Your username">
+    <input class="form-control" type="text" class="username" formControlName="userName" placeholder="Your username">
 
     <div class="form-error">
-      <span class="notification" *ngIf="!loginForm.get('username').valid && loginForm.get('username').touched">The
-        username should not be less than 6 characters.</span>
+      <span class="notification" *ngIf="!logInForm.get('userName').valid && logInForm.get('userName').touched">
+        The username should not be less than 6 characters.
+      </span>
     </div>
 
-    <span class="notification" *ngIf="!loginForm.get('username').valid && loginForm.get('username').touched">
+    <span class="notification" *ngIf="!logInForm.get('userName').valid && logInForm.get('userName').touched">
       The username should be not more than 20 characters.
     </span>
   </div>
@@ -25,21 +26,21 @@
     <input class="form-control" type="password" id="password" formControlName="password" placeholder="Your password">
 
     <div class="form-error">
-      <span class="notification" *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched">
+      <span class="notification" *ngIf="!logInForm.get('password').valid && logInForm.get('password').touched">
         The password should not be less than 6 characters.
       </span>
     </div>
   </div>
 
   <div class="button">
-    <button type="submit" [disabled]="!loginForm.valid">
+    <button type="submit" [disabled]="!logInForm.valid">
       Login
     </button>
   </div>
 
   <div class="form-error warning">
-    <span *ngIf="!loginForm.get('username').valid && loginForm.get('username').touched
-    || !loginForm.get('password').valid && loginForm.get('password').touched">
+    <span *ngIf="!logInForm.get('userName').valid && logInForm.get('userName').touched
+    || !logInForm.get('password').valid && logInForm.get('password').touched">
       Please check your credentials!
     </span>
   </div>
