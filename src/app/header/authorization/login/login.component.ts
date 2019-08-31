@@ -1,86 +1,94 @@
-import { Component, OnInit, Inject, Output, EventEmitter } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
-import { LoginService } from '../../service/login.service';
+import { Component, OnInit, Inject, OnDestroy } from '@angular/core';
+
 import { Subscription } from 'rxjs';
-import { MatDialogRef } from '@angular/material';
+import { FormGroup, FormControl } from '@angular/forms';
+
+import { LoginService } from '../../service/login.service';
 import { Router } from '@angular/router';
+import { MatDialogRef } from '@angular/material';
 import { SESSION_STORAGE, WebStorageService } from 'angular-webstorage-service';
 import { NotificationService } from '../../service/notification.service';
-
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
 
-  credentials$: Subscription;
-  loginForm: FormGroup;
-  username: string;
+export class LoginComponent implements OnInit, OnDestroy {
+
+  public credentials$: Subscription = new Subscription();
+  public loginForm: FormGroup;
+  public username: string;
 
   constructor(
     private loginService: LoginService,
     private router: Router,
-    private dialogRef: MatDialogRef<LoginComponent>,
-    @Inject(SESSION_STORAGE) private storage: WebStorageService,
+    private matDialogRef: MatDialogRef<LoginComponent>,
+    @Inject(SESSION_STORAGE)
+    private webStorageService: WebStorageService,
     private notificationService: NotificationService
   ) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.onLogInForm();
+  }
+
+  public onLogInForm(): void {
     this.loginForm = new FormGroup({
-      'username': new FormControl(''),
-      'password': new FormControl('')
+      username: new FormControl(''),
+      password: new FormControl('')
     });
   }
 
   ngOnDestroy(): void {
-    if (this.credentials$ !== undefined) {
-      this.credentials$.unsubscribe();
-    }
+    this.credentials$.unsubscribe();
   }
 
-  onSubmit() {
+  public onSubmit(): void {
     if (this.loginForm.valid) {
-      this.credentials$ = this.loginService.sendSignInCredentials(this.loginForm.value).subscribe(res => {
-        if (res.message === 'success') {
-          this.username = res.user.username;
-          this.loadProfile(res.user.authority);
-          this.saveToSession('username', res.user.username);
-          this.saveToSession('userUuId', res.user.userUuId);
-          this.saveToSession('authority', res.user.authority);
-          this.saveToSession('basket', res.user.basket);
-        }
-        else {
-          this.notificationService.onSuccess('Please check your username or password.');
-        }
-      });
+      this.credentials$ = this.getSignInCredientals();
       this.onClose();
     }
   }
 
-
-  onClose() {
-    this.dialogRef.close(this.loginForm);
+  public getSignInCredientals(): Subscription {
+    return this.loginService
+      .sendSignInCredentials(this.loginForm.value)
+      .subscribe(response => {
+        if (response.message === 'Success') {
+          this.username = response.user.username;
+          this.loadProfile(response.user.authority);
+          this.saveToSession('username', response.user.username);
+          this.saveToSession('userUuId', response.user.userUuId);
+          this.saveToSession('authority', response.user.authority);
+          this.saveToSession('basket', response.user.basket);
+        } else {
+          this.notificationService.onSuccess('Please check your username or password.');
+        }
+      });
   }
 
-  loadProfile(authority) {
-    if (authority === "user") {
+  public onClose(): void {
+    this.matDialogRef.close(this.loginForm);
+  }
+
+  public loadProfile(authority: string): void {
+    if (authority === 'user') {
       this.router.navigate(['/user']);
-    }
-    else if (authority === "admin") {
+    } else if (authority === 'admin') {
       this.router.navigate(['/admin']);
-    }
-    else {
+    } else {
       this.router.navigate(['/main']);
     }
   }
 
-  saveToSession(key, value): void {
-    this.storage.set(key, value);
+  saveToSession(key: string, value: any): void {
+    this.webStorageService.set(key, value);
   }
 
-  getDataFromSession(key): any {
-    this.username = this.storage.get(key);
+  getDataFromSession(key: string): void {
+    this.username = this.webStorageService.get(key);
   }
+
 }
