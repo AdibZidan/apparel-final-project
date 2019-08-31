@@ -1,12 +1,13 @@
 import { SignoutComponent } from './signout.component';
-
 import { ComponentFixture, async, TestBed } from '@angular/core/testing';
+
 import { DebugElement } from '@angular/core';
 
-describe('SignoutComponent', () => {
+describe('Signout Component', () => {
 
   let signoutComponent: SignoutComponent;
   let signoutFixture: ComponentFixture<SignoutComponent>;
+
   let debugElement: DebugElement;
   let htmlElement: HTMLElement;
 
