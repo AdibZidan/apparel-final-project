@@ -18,8 +18,8 @@ import { NotificationService } from '../../service/notification.service';
 export class LoginComponent implements OnInit, OnDestroy {
 
   public credentials$: Subscription = new Subscription();
-  public loginForm: FormGroup;
-  public username: string;
+  public logInForm: FormGroup;
+  public userName: string;
 
   constructor(
     private loginService: LoginService,
@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   public onLogInForm(): void {
-    this.loginForm = new FormGroup({
+    this.logInForm = new FormGroup({
       username: new FormControl(''),
       password: new FormControl('')
     });
@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   public onSubmit(): void {
-    if (this.loginForm.valid) {
+    if (this.logInForm.valid) {
       this.credentials$ = this.getSignInCredientals();
       this.onClose();
     }
@@ -54,10 +54,10 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   public getSignInCredientals(): Subscription {
     return this.loginService
-      .sendSignInCredentials(this.loginForm.value)
+      .sendSignInCredentials(this.logInForm.value)
       .subscribe(response => {
         if (response.message === 'Success') {
-          this.username = response.user.username;
+          this.userName = response.user.username;
           this.loadProfile(response.user.authority);
           this.saveToSession('username', response.user.username);
           this.saveToSession('userUuId', response.user.userUuId);
@@ -70,7 +70,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   public onClose(): void {
-    this.matDialogRef.close(this.loginForm);
+    this.matDialogRef.close(this.logInForm);
   }
 
   public loadProfile(authority: string): void {
@@ -88,7 +88,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   getDataFromSession(key: string): void {
-    this.username = this.webStorageService.get(key);
+    this.userName = this.webStorageService.get(key);
   }
 
 }
