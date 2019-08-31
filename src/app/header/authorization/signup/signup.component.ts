@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+
+import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
+
+import { PasswordVerifier } from './PassWordVerifier';
 
 import { MatDialogRef } from '@angular/material';
-
 import { UserService } from '../../service/user.service';
 import { NotificationService } from '../../service/notification.service';
 
-import { PasswordVerifier } from './PassWordVerifier';
-import { ItemForm } from '../.././../forms/ItemForm';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -16,112 +16,138 @@ import { ItemForm } from '../.././../forms/ItemForm';
 
 export class SignupComponent implements OnInit {
 
-  private formGroup: FormGroup;
-  private hidePassword: boolean = true;
-
-  private isValidForm: boolean = false;
-  private validPattern: string = '(?=.*\[0-9])(?=.*[a-z])(?=.*[A-Z]).*';
-  private noSpacePattern: string = '[^ ]*';
-  private noSpecialCharactersPattern: string = '[^-+_!@#$%^&*.,?]*';
-  private passwordVerifier = PasswordVerifier.PasswordValidator;
+  public formGroup: FormGroup;
+  public hidePassword = true;
+  public isValidForm = false;
+  public validPattern = '(?=.*\[0-9])(?=.*[a-z])(?=.*[A-Z]).*';
+  public noSpacePattern = '[^ ]*';
+  public noSpecialCharactersPattern = '[^-+_!@#$%^&*.,?]*';
+  public passwordVerifier = PasswordVerifier.PasswordValidator;
 
   constructor(
     private formBuilder: FormBuilder,
-    private dialogRef: MatDialogRef<SignupComponent>,
+    private matDialogRef: MatDialogRef<SignupComponent>,
     private userService: UserService,
     private notificationService: NotificationService
   ) { }
 
-  ngOnInit() { this.buildForm(); }
+  ngOnInit(): void {
+    this.onBuildForm();
+  }
 
-  buildForm() {
-    this.formGroup = this.formBuilder.group({
-      userUuId: [''],
-      username: ['', Validators.compose([Validators.required, Validators.minLength(6), Validators.maxLength(20), Validators.pattern(this.noSpacePattern), Validators.pattern(this.validPattern)])],
-      password: ['', Validators.compose([Validators.required, Validators.minLength(6), Validators.maxLength(20), Validators.pattern(this.validPattern), Validators.pattern(this.noSpacePattern), Validators.pattern(this.noSpecialCharactersPattern)])],
-      matchingPassword: ['', [Validators.required]],
-      email: ['', Validators.compose([Validators.required, Validators.email])],
-      address: [''],
-      authority: ['user'],
-      basket: [[]]
-    }, { validators: this.passwordVerifier });
+  public onBuildForm(): void {
+    this.formGroup = this.getGroupedFormBuilder();
 
     this.formGroup
       .valueChanges
-      .subscribe(() => this.isValidForm = this.formGroup.valid);
+      .subscribe(() =>
+        this.isValidForm = this.formGroup.valid);
 
     this.formGroup
       .controls
       .password
       .valueChanges
       .subscribe(() =>
-        this.formGroup.controls.matchingPassword.updateValueAndValidity());
-
+        this.formGroup
+          .controls
+          .matchingPassword
+          .updateValueAndValidity());
   }
 
-  onSubmit() {
+  public getGroupedFormBuilder(): FormGroup {
+    return this.formBuilder.group({
+      userUuId: [''],
+      username: ['',
+        Validators.compose([
+          Validators.required,
+          Validators.minLength(6),
+          Validators.maxLength(20),
+          Validators.pattern(this.noSpacePattern),
+          Validators.pattern(this.validPattern)])],
+      password: ['',
+        Validators.compose([
+          Validators.required,
+          Validators.minLength(6),
+          Validators.maxLength(20),
+          Validators.pattern(this.validPattern),
+          Validators.pattern(this.noSpacePattern),
+          Validators.pattern(this.noSpecialCharactersPattern)])],
+      matchingPassword: ['',
+        [Validators.required]],
+      email: ['',
+        Validators.compose([
+          Validators.required,
+          Validators.email])],
+      address: [''],
+      authority: ['user'],
+      basket: [[]]
+    }, { validators: this.passwordVerifier });
+  }
+
+  public onSubmit(): void {
     if (this.formGroup.valid) {
-      this.userService.addFormToBackEnd(this.formGroup.value).subscribe(res => {
-        if (res.message === 'success') {
-          this.notificationService.onSuccess('Your account was registered!');
-        }
-        else if (res.message === 'username is taken') {
-          this.notificationService.onSuccess('This username is not available.')
-        }
-      });
+      this.userService
+        .addFormToBackEnd(this.formGroup.value)
+        .subscribe(response => {
+          if (response.message === 'Success') {
+            this.notificationService.onSuccess('Your account was registered!');
+          } else if (response.message === 'Username is taken') {
+            this.notificationService.onSuccess('This username is not available.');
+          }
+        });
       this.onClose();
     }
   }
 
-  onClose() {
-    this.dialogRef.close(this.formGroup.value);
+  public onClose(): void {
+    this.matDialogRef.close(this.formGroup.value);
   }
 
-  get username() {
+  public get username(): AbstractControl {
     return this.formGroup.get('username');
   }
 
-  get password() {
+  public get password(): AbstractControl {
     return this.formGroup.get('password');
   }
 
-  get matchingPassword() {
+  public get matchingPassword(): AbstractControl {
     return this.formGroup.get('matchingPassword');
   }
 
-  get email() {
+  public get email(): AbstractControl {
     return this.formGroup.get('email');
   }
 
-  get address() {
+  public get address(): AbstractControl {
     return this.formGroup.get('address');
   }
 
-  noSpace(inputValue: string) {
+  public noSpace(inputValue: string): boolean {
     const regularExpression = /\s/g;
 
     return regularExpression.test(inputValue);
   }
 
-  isLowerCased(inputValue: string) {
+  public isLowerCased(inputValue: string): boolean {
     const regularExpression = /[a-z]/;
 
     return regularExpression.test(inputValue);
   }
 
-  isUpperCased(inputValue: string) {
+  public isUpperCased(inputValue: string): boolean {
     const regularExpression = /[A-Z]/;
 
     return regularExpression.test(inputValue);
   }
 
-  hasANumber(inputValue: string) {
+  public hasANumber(inputValue: string): boolean {
     const regularExpression = /[0-9]/;
 
     return regularExpression.test(inputValue);
   }
 
-  noSpecialCharacters(inputValue: string) {
+  public noSpecialCharacters(inputValue: string): boolean {
     const regularExpression = /[!@#$%^&*(),.?":{}|<>]/;
 
     return regularExpression.test(inputValue);
