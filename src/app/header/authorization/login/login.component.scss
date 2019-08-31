@@ -6,8 +6,8 @@ form {
   border-radius: 5px;
 }
 
-.text{
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+.text {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-size: 20px;
   font-weight: bold;
   text-align: center;
@@ -22,7 +22,7 @@ form {
   outline: none;
 }
 
-#username {
+.username {
   margin-top: 30px;
 }
 
@@ -74,7 +74,7 @@ span {
   width: 40px;
   padding: 5px;
   float: right;
-border-radius: 10px;
+  border-radius: 10px;
 }
 
 span:nth-child(1) {
