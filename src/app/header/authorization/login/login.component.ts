@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   public onLogInForm(): void {
     this.logInForm = new FormGroup({
-      username: new FormControl(''),
+      userName: new FormControl(''),
       password: new FormControl('')
     });
   }
