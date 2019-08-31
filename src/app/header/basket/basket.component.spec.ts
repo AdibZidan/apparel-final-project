@@ -6,7 +6,7 @@ import { MatMenuModule, MatDividerModule, MatListModule } from '@angular/materia
 
 import { SESSION_STORAGE } from 'angular-webstorage-service';
 
-describe('BasketComponent', () => {
+describe('Basket Component', () => {
 
   let basketComponent: BasketComponent;
   let basketFixture: ComponentFixture<BasketComponent>;
