@@ -1,6 +1,6 @@
 import { MainComponent } from './main.component';
-
 import { ComponentFixture, async, TestBed } from '@angular/core/testing';
+
 import { DebugElement } from '@angular/core';
 
 import { HttpClientModule } from '@angular/common/http';
@@ -12,7 +12,7 @@ import { ItemComponent } from './item/item/item.component';
 import { Router } from '@angular/router';
 import { SESSION_STORAGE } from 'angular-webstorage-service';
 
-describe('MainComponent', () => {
+describe('Main Component', () => {
 
   let mainComponent: MainComponent;
   let mainFixture: ComponentFixture<MainComponent>;
