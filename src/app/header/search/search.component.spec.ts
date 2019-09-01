@@ -6,7 +6,7 @@ import { DebugElement } from '@angular/core';
 import { MatMenuModule } from '@angular/material';
 
 
-describe('SearchComponent', () => {
+describe('Search Component', () => {
 
   let searchComponent: SearchComponent;
   let searchFixture: ComponentFixture<SearchComponent>;
