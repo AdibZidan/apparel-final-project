@@ -1,4 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
+
 import { SESSION_STORAGE, WebStorageService } from 'angular-webstorage-service';
 
 @Component({
@@ -9,14 +10,19 @@ import { SESSION_STORAGE, WebStorageService } from 'angular-webstorage-service';
 
 export class UserComponent implements OnInit {
 
-  private username: string;
+  public username: string;
 
-  constructor(@Inject(SESSION_STORAGE) private webStorageService: WebStorageService) { }
+  constructor(
+    @Inject(SESSION_STORAGE)
+    private webStorageService: WebStorageService
+  ) { }
 
-  ngOnInit() { this.username = this.getDataFromSession('username'); }
+  ngOnInit(): void {
+    this.username = this.getDataFromSession('username');
+  }
 
-  getDataFromSession(key: string): string { return this.webStorageService.get(key); }
+  public getDataFromSession(key: string): string {
+    return this.webStorageService.get(key);
+  }
 
 }
-
-
