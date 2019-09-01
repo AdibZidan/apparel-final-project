@@ -3,7 +3,7 @@ import { ComponentFixture, async, TestBed } from '@angular/core/testing';
 
 import { DebugElement } from '@angular/core';
 
-describe('Signout Component', () => {
+describe('Sign Out Component', () => {
 
   let signoutComponent: SignoutComponent;
   let signoutFixture: ComponentFixture<SignoutComponent>;
