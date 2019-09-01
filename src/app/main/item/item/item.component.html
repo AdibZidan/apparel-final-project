@@ -40,19 +40,18 @@
     <select (change)="onSelect($event)">
       <option value="" disabled selected>Gender</option>
       <option>Any</option>
-      <option>female</option>
-      <option>male</option>
-      <option>child</option>
+      <option>Female</option>
+      <option>Male</option>
+      <option>Other</option>
     </select>
   </div>
 
 </div>
 
 <div class="item">
-
   <ng-container *ngIf="images$ | async as images">
-    <div class="images" *ngFor="let image of images">
 
+    <div class="images" *ngFor="let image of images">
       <ng-container *ngIf="filterItem(image)">
         <figure>
           <img [ngClass]="setReserved(image)" class="image" src="{{ image.imageUrl }}" alt="{{ image.name }}">
@@ -60,14 +59,13 @@
           <p class="paragraph">
             <span class="name" title="{{ image.name }}"> {{ image.name }}</span>
             <span class="size"> Size: {{ image.size }}</span>
-
-
             <button class="reserve" (click)="notify(image)" *ngIf="image.booked === true">Reserved</button>
             <button class="reserve" (click)="notify(image)" *ngIf="image.booked === false">Reserve</button>
-
           </p>
+
         </figure>
       </ng-container>
     </div>
+
   </ng-container>
 </div>
