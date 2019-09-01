@@ -16,10 +16,10 @@ export class BasketService {
   //   return this.httpClient.get<User>(url);
   // }
 
-  reserveItem(reserveForm: ReserveForm): Observable<ReserveForm> {
+  reserveItem(reserveForm: ReserveForm): Observable<any> {
     const itemsUrl = 'http://localhost:3000/items';
 
-    return this.httpClient.put<ReserveForm>(itemsUrl, reserveForm);
+    return this.httpClient.put<any>(itemsUrl, reserveForm);
   }
 
   // toggleItem(item: ItemForm): Observable<ItemForm> {
