@@ -1,14 +1,13 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { Router } from '@angular/router';
+
 import { Observable } from 'rxjs';
+import { ItemForm } from '../../../forms/ItemForm';
 
 import { MainService } from '../../service/main.service';
 import { BasketService } from './../../../header/service/basket.service';
 import { NotificationService } from '../../../header/service/notification.service'
-
-import { ItemForm } from '../../../forms/ItemForm';
+import { Router } from '@angular/router';
 import { SESSION_STORAGE, WebStorageService } from 'angular-webstorage-service';
-
 
 @Component({
   selector: 'app-item',
@@ -18,78 +17,82 @@ import { SESSION_STORAGE, WebStorageService } from 'angular-webstorage-service';
 
 export class ItemComponent implements OnInit {
 
-  private images$: Observable<ItemForm[]>;
-  data: any = {};
-  items: ItemForm[] = [];
-  filterValue: string;
+  public images$: Observable<ItemForm[]>;
+  public data: any = {};
+  public items: ItemForm[] = [];
+  public filterValue: string;
 
   constructor(
     private mainService: MainService,
     private basketService: BasketService,
     private notificationService: NotificationService,
     private router: Router,
-    @Inject(SESSION_STORAGE) private storage: WebStorageService
+    @Inject(SESSION_STORAGE)
+    private webStorageService: WebStorageService
   ) { }
 
-  setReserved(item: ItemForm): object {
+  public setReserved(item: ItemForm): object {
     const isReserved = {
       'is-reserved': item.booked
-    }
+    };
+
     return isReserved;
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.images$ = this.mainService.getItemsFromBackEnd();
   }
 
-
-  notify(item: ItemForm) {
+  public notify(item: ItemForm): void {
     if (this.router.url === '/main') {
-      this.notificationService.onSuccess('Please sign in first');
-
+      this.notificationService.onSuccess('Please sign in first.');
     } else if (this.router.url === '/user') {
       this.data.chosenItem = item.uuid;
-      this.data.currentUser = this.storage.get('userUuId');
+      this.data.currentUser = this.webStorageService.get('userUuId');
 
-      let array = this.storage.get('basket');
-      array.push(item);
-      this.storage.set('basket', array);
+      const basket = this.webStorageService.get('basket');
+      basket.push(item);
+      this.webStorageService.set('basket', basket);
 
-      this.basketService.reserveItem(this.data).subscribe(res => {
-        if (res.message === 'success') {
-          item.booked = !item.booked;
-          if (item.booked) {
-            item.userUuId = this.storage.get('userUuId');
-            this.notificationService.onSuccess('Added to basket');
+      this.basketService
+        .reserveItem(this.data)
+        .subscribe(response => {
+          if (response.message === 'Success') {
+            item.booked = !item.booked;
+            if (item.booked) {
+              item.userUuId = this.webStorageService.get('userUuId');
+              this.notificationService.onSuccess('Added to basket.');
+            } else {
+              item.userUuId = '';
+
+              const session = this.webStorageService.get('basket');
+              const filteredUUID = session.filter(item => item.uuid !== item.uuid);
+              this.webStorageService.set('basket', filteredUUID);
+              this.notificationService.onSuccess('Removed from basket.');
+            }
           }
-          else {
-            item.userUuId = "";
-
-            let arraySession = this.storage.get('basket');
-            let out = arraySession.filter(el => el.uuid != item.uuid);
-            this.storage.set('basket', out);
-            this.notificationService.onSuccess('Removed from basket');
-          }
-        }
-      });
+        });
     }
   }
 
-  onSelect(event) {
+  public onSelect(event: { target: { value: string; }; }): void {
     this.filterValue = event.target.value;
   }
 
-  filterItem(item: ItemForm) {
-    if (this.filterValue === undefined || this.filterValue === "Any") {
+  public filterItem(item: ItemForm): boolean {
+    if (this.filterValue === undefined || this.filterValue === 'Any') {
       return true;
     }
-    for (let property in item) {
+
+    for (const property in item) {
       if (item.hasOwnProperty(property)) {
         if (item[property] === this.filterValue) {
           return true;
         }
       }
     }
+
     return false;
   }
+
 }
