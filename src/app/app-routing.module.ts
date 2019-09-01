@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
+
 import { LoginComponent } from './header/authorization/login/login.component';
 import { SignupComponent } from './header/authorization/signup/signup.component';
+import { SignoutComponent } from './header/authorization/signout/signout.component';
 import { UserComponent } from './user/user.component';
 import { MainComponent } from './main/main.component';
-import { AdminComponent } from './admin/admin.component';
-import { SignoutComponent } from './header/authorization/signout/signout.component';
-
 import { AuthenticationGuard } from './authentication/authentication.guard';
+import { AdminComponent } from './admin/admin.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'main', pathMatch: 'full' },
@@ -21,8 +21,10 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [],
-  imports: [CommonModule, RouterModule.forRoot(routes)],
+  imports: [
+    CommonModule,
+    RouterModule.forRoot(routes)
+  ],
   exports: [RouterModule]
 })
 
