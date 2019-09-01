@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 
 export class AuthenticationService {
 
-  isLoggedIn(): boolean {
+  public isLoggedIn(): boolean {
     if (sessionStorage.getItem('authority') === '"user"' || sessionStorage.getItem('authority') === '"admin"') {
       return !!sessionStorage.getItem('username');
     }
