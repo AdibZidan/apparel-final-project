@@ -3,7 +3,7 @@ import { TestBed, async } from '@angular/core/testing';
 
 import { HttpClientModule } from '@angular/common/http';
 
-describe('Login Service', () => {
+describe('LogIn Service', () => {
 
   let loginService: LoginService;
 
