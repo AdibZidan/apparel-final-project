@@ -11,8 +11,7 @@ import { ItemComponent } from '../../item/item/item.component';
 import { Router } from '@angular/router';
 import { SESSION_STORAGE } from 'angular-webstorage-service';
 
-
-describe('CatalogueComponent', () => {
+describe('Catalogue Component', () => {
 
   let catalogueComponent: CatalogueComponent;
   let catalogueFixture: ComponentFixture<CatalogueComponent>;
