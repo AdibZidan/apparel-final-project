@@ -13,7 +13,7 @@ import { ItemComponent } from '../main/item/item/item.component';
 import { SESSION_STORAGE } from 'angular-webstorage-service';
 import { Router } from '@angular/router';
 
-describe('UserComponent', () => {
+describe('User Component', () => {
 
   let userComponent: UserComponent;
   let userFixture: ComponentFixture<UserComponent>;
