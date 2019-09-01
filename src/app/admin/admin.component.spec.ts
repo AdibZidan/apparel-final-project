@@ -7,7 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatDialogModule, MatSnackBarModule } from '@angular/material';
 
-describe('AdminComponent', () => {
+describe('Admin Component', () => {
 
   let adminComponent: AdminComponent;
   let adminFixture: ComponentFixture<AdminComponent>;
