@@ -9,7 +9,7 @@ import { MatSnackBarModule } from '@angular/material';
 import { Router } from '@angular/router';
 import { SESSION_STORAGE } from 'angular-webstorage-service';
 
-describe('ItemComponent', () => {
+describe('Item Component', () => {
 
   let itemComponent: ItemComponent;
   let itemFixture: ComponentFixture<ItemComponent>;
