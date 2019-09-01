@@ -7,7 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatSnackBarModule, MatDialogRef } from '@angular/material';
 
-describe('SignupComponent', () => {
+describe('Sign Up Component', () => {
 
   let signUpComponent: SignupComponent;
   let signUpFixture: ComponentFixture<SignupComponent>;
