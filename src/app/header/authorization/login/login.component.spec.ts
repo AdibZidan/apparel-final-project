@@ -10,7 +10,7 @@ import { MatSnackBarModule, MatDialogRef } from '@angular/material';
 import { Router } from '@angular/router';
 import { SESSION_STORAGE } from 'angular-webstorage-service';
 
-describe('LoginComponent', () => {
+describe('LogIn Component', () => {
 
   let loginComponent: LoginComponent;
   let loginFixture: ComponentFixture<LoginComponent>;
