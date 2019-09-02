@@ -3,7 +3,7 @@ import { ComponentFixture, async, TestBed } from '@angular/core/testing';
 
 import { DebugElement } from '@angular/core';
 
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule, FormGroup } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatDialogModule, MatSnackBarModule } from '@angular/material';
 
@@ -54,6 +54,12 @@ describe('Admin Component', () => {
     const actualGenders: string[] = adminComponent.genders;
 
     expect(actualGenders).toEqual(expectedGenders);
+  });
+
+  it(`Should have an undefined 'uploadForm' property before 'ngOnInit'`, () => {
+    const actualUploadForm: FormGroup = adminComponent.uploadForm;
+
+    expect(actualUploadForm).toBeUndefined();
   });
 
 });
