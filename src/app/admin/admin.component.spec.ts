@@ -68,4 +68,10 @@ describe('Admin Component', () => {
     expect(actualSelectedFile).toBeUndefined();
   });
 
+  it(`Should have an undefined 'formData' property before 'ngOnInit'`, () => {
+    const actualFormData = adminComponent.formData;
+
+    expect(actualFormData).toBeUndefined();
+  });
+
 });
