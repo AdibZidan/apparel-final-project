@@ -47,4 +47,13 @@ describe('Admin Component', () => {
       .toBeTruthy();
   });
 
+  it(`Should have 'genders' property`, () => {
+    const expectedGenders: string[] = [
+      'male', 'female'
+    ];
+    const actualGenders: string[] = adminComponent.genders;
+
+    expect(actualGenders).toEqual(expectedGenders);
+  });
+
 });
