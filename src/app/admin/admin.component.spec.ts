@@ -62,4 +62,10 @@ describe('Admin Component', () => {
     expect(actualUploadForm).toBeUndefined();
   });
 
+  it(`Should have an undefined 'selectedFile' property before 'ngOnInit'`, () => {
+    const actualSelectedFile = adminComponent.selectedFile;
+
+    expect(actualSelectedFile).toBeUndefined();
+  });
+
 });
