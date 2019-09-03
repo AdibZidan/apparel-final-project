@@ -66,4 +66,10 @@ describe('LogIn Component', () => {
     expect(logInForm).toBeUndefined();
   });
 
+  it(`Should have an undefined 'userName' property before 'ngOnInit'`, () => {
+    const userName = loginComponent.userName;
+
+    expect(userName).toBeUndefined();
+  });
+
 });
