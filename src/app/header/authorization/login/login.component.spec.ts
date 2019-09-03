@@ -60,4 +60,10 @@ describe('LogIn Component', () => {
     expect(credentials$).toBeDefined();
   });
 
+  it(`Should have an undefined 'logInForm' property before 'ngOnInit'`, () => {
+    const logInForm = loginComponent.logInForm;
+
+    expect(logInForm).toBeUndefined();
+  });
+
 });
