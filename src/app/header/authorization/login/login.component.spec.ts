@@ -54,4 +54,10 @@ describe('LogIn Component', () => {
       .toBeTruthy();
   });
 
+  it(`Should have a defined 'credentials$' property`, () => {
+    const credentials$ = loginComponent.credentials$;
+
+    expect(credentials$).toBeDefined();
+  });
+
 });
