@@ -92,6 +92,12 @@ describe('Sign Up Component', () => {
       expect(actualNoSpecialCharactersPatternProperty).toBe(expectedNoSpecialCharactersPatternProperty);
     });
 
+    it(`Should have a defined 'passwordVerifier' property before 'ngOnInit'`, () => {
+      const passwordVerifier = signUpComponent.passwordVerifier;
+
+      expect(passwordVerifier).toBeDefined();
+    });
+
   });
 
 });
