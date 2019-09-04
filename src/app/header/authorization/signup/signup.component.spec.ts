@@ -71,6 +71,12 @@ describe('Sign Up Component', () => {
       expect(actualIsValidProperty).toBe(expectedIsValidFormProperty);
     });
 
+    it(`Should have a 'validPattern' property before 'ngOnInit'`, () => {
+      const expectedValidPatternProperty = '(?=.*\[0-9])(?=.*[a-z])(?=.*[A-Z]).*';
+      const actualValidPatternProperty = signUpComponent.validPattern;
+
+      expect(actualValidPatternProperty).toBe(expectedValidPatternProperty);
+    });
 
   });
 
