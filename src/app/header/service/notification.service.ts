@@ -6,9 +6,16 @@ import { MatSnackBar, MatSnackBarConfig } from '@angular/material';
 
 export class NotificationService {
 
-  private configuration: MatSnackBarConfig = { verticalPosition: 'bottom', duration: 2000, panelClass: ['white-snackbar'] }
+  public configuration: MatSnackBarConfig = {
+    verticalPosition: 'bottom',
+    duration: 2000,
+    panelClass: ['white-snackbar']
+  };
 
   constructor(private matSnackBar: MatSnackBar) { }
 
-  onSuccess(message: string) { this.matSnackBar.open(message, 'OK', this.configuration); }
+  public onSuccess(message: string) {
+    this.matSnackBar.open(message, 'OK', this.configuration);
+  }
+
 }
