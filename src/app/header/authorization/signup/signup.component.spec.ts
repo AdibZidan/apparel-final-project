@@ -78,6 +78,13 @@ describe('Sign Up Component', () => {
       expect(actualValidPatternProperty).toBe(expectedValidPatternProperty);
     });
 
+    it(`Should have a 'noSpacePattern' property before 'ngOnInit'`, () => {
+      const expectedNoSpacePatternProperty = '[^ ]*';
+      const actualNoSpacePatternProperty = signUpComponent.noSpacePattern;
+
+      expect(actualNoSpacePatternProperty).toBe(expectedNoSpacePatternProperty);
+    });
+
   });
 
 });
