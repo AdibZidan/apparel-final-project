@@ -64,6 +64,14 @@ describe('Sign Up Component', () => {
       expect(actualHidePasswordProperty).toBe(expectedHidePasswordProperty);
     });
 
+    it(`Should have a falsy 'isValidForm' property before 'ngOnInit'`, () => {
+      const expectedIsValidFormProperty = false;
+      const actualIsValidProperty = signUpComponent.isValidForm;
+
+      expect(actualIsValidProperty).toBe(expectedIsValidFormProperty);
+    });
+
+
   });
 
 });
