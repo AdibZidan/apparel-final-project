@@ -49,4 +49,14 @@ describe('Sign Up Component', () => {
       .toBeTruthy();
   });
 
+  describe('Sign Up Component Properties', () => {
+
+    it(`Should have an undefined 'formGroup' property before 'ngOnInit'`, () => {
+      const formGroup = signUpComponent.formGroup;
+
+      expect(formGroup).toBeUndefined();
+    });
+
+  });
+
 });
