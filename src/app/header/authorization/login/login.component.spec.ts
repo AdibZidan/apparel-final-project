@@ -57,21 +57,21 @@ describe('LogIn Component', () => {
   describe('LogIn Component Properties', () => {
 
     it(`Should have a defined 'credentials$' property`, () => {
-      const credentials$ = loginComponent.credentials$;
+      const credentials$Property = loginComponent.credentials$;
 
-      expect(credentials$).toBeDefined();
+      expect(credentials$Property).toBeDefined();
     });
 
     it(`Should have an undefined 'logInForm' property before 'ngOnInit'`, () => {
-      const logInForm = loginComponent.logInForm;
+      const logInFormProperty = loginComponent.logInForm;
 
-      expect(logInForm).toBeUndefined();
+      expect(logInFormProperty).toBeUndefined();
     });
 
     it(`Should have an undefined 'userName' property before 'ngOnInit'`, () => {
-      const userName = loginComponent.userName;
+      const userNameProperty = loginComponent.userName;
 
-      expect(userName).toBeUndefined();
+      expect(userNameProperty).toBeUndefined();
     });
 
   });
