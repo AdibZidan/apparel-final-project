@@ -57,6 +57,13 @@ describe('Sign Up Component', () => {
       expect(formGroup).toBeUndefined();
     });
 
+    it(`Should have a truthy 'hidePassword' property before 'ngOnInit'`, () => {
+      const expectedHidePasswordProperty = true;
+      const actualHidePasswordProperty = signUpComponent.hidePassword;
+
+      expect(actualHidePasswordProperty).toBe(expectedHidePasswordProperty);
+    });
+
   });
 
 });
