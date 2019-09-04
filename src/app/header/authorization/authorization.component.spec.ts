@@ -47,9 +47,9 @@ describe('Authorization Component', () => {
   describe('Authorization Component Properties', () => {
 
     it(`Should have a defined 'matDialogConfig' property`, () => {
-      const matDialogConfigProperty = authorizationComponent.matDialogConfig;
+      const actualMatDialogConfigProperty = authorizationComponent.matDialogConfig;
 
-      expect(matDialogConfigProperty).toBeDefined();
+      expect(actualMatDialogConfigProperty).toBeDefined();
     });
 
   });
