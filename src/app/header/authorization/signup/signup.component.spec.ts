@@ -52,9 +52,9 @@ describe('Sign Up Component', () => {
   describe('Sign Up Component Properties', () => {
 
     it(`Should have an undefined 'formGroup' property before 'ngOnInit'`, () => {
-      const formGroup = signUpComponent.formGroup;
+      const actualFormGroup = signUpComponent.formGroup;
 
-      expect(formGroup).toBeUndefined();
+      expect(actualFormGroup).toBeUndefined();
     });
 
     it(`Should have a truthy 'hidePassword' property before 'ngOnInit'`, () => {
@@ -93,9 +93,9 @@ describe('Sign Up Component', () => {
     });
 
     it(`Should have a defined 'passwordVerifier' property before 'ngOnInit'`, () => {
-      const passwordVerifier = signUpComponent.passwordVerifier;
+      const actualPasswordVerifier = signUpComponent.passwordVerifier;
 
-      expect(passwordVerifier).toBeDefined();
+      expect(actualPasswordVerifier).toBeDefined();
     });
 
   });
