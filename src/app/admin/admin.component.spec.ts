@@ -47,31 +47,35 @@ describe('Admin Component', () => {
       .toBeTruthy();
   });
 
-  it(`Should have 'genders' property`, () => {
-    const expectedGenders: string[] = [
-      'male', 'female'
-    ];
-    const actualGenders: string[] = adminComponent.genders;
+  describe('Admin Component Properties', () => {
 
-    expect(actualGenders).toEqual(expectedGenders);
-  });
+    it(`Should have 'genders' property`, () => {
+      const expectedGendersProperty: string[] = [
+        'male', 'female'
+      ];
+      const actualGendersProperty: string[] = adminComponent.genders;
 
-  it(`Should have an undefined 'uploadForm' property before 'ngOnInit'`, () => {
-    const actualUploadForm: FormGroup = adminComponent.uploadForm;
+      expect(actualGendersProperty).toEqual(expectedGendersProperty);
+    });
 
-    expect(actualUploadForm).toBeUndefined();
-  });
+    it(`Should have an undefined 'uploadForm' property before 'ngOnInit'`, () => {
+      const actualUploadFormProperty: FormGroup = adminComponent.uploadForm;
 
-  it(`Should have an undefined 'selectedFile' property before 'ngOnInit'`, () => {
-    const actualSelectedFile = adminComponent.selectedFile;
+      expect(actualUploadFormProperty).toBeUndefined();
+    });
 
-    expect(actualSelectedFile).toBeUndefined();
-  });
+    it(`Should have an undefined 'selectedFile' property before 'ngOnInit'`, () => {
+      const actualSelectedFileProperty = adminComponent.selectedFile;
 
-  it(`Should have an undefined 'formData' property before 'ngOnInit'`, () => {
-    const actualFormData = adminComponent.formData;
+      expect(actualSelectedFileProperty).toBeUndefined();
+    });
 
-    expect(actualFormData).toBeUndefined();
+    it(`Should have an undefined 'formData' property before 'ngOnInit'`, () => {
+      const actualFormDataProperty = adminComponent.formData;
+
+      expect(actualFormDataProperty).toBeUndefined();
+    });
+
   });
 
 });
