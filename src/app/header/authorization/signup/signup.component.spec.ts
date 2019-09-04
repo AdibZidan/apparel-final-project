@@ -85,6 +85,13 @@ describe('Sign Up Component', () => {
       expect(actualNoSpacePatternProperty).toBe(expectedNoSpacePatternProperty);
     });
 
+    it(`Should have a 'noSpecialCharactersPattern' before 'ngOnInit'`, () => {
+      const expectedNoSpecialCharactersPatternProperty = '[^-+_!@#$%^&*.,?]*';
+      const actualNoSpecialCharactersPatternProperty = signUpComponent.noSpecialCharactersPattern;
+
+      expect(actualNoSpecialCharactersPatternProperty).toBe(expectedNoSpecialCharactersPatternProperty);
+    });
+
   });
 
 });
