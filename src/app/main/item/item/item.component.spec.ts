@@ -73,6 +73,12 @@ describe('Item Component', () => {
       expect(actualItemsProperty).toEqual(expectedItemsProperty);
     });
 
+    it(`Should have an undefined 'filterValue' property before 'ngOnInit'`, () => {
+      const actualFilterValueProperty: string = itemComponent.filterValue;
+
+      expect(actualFilterValueProperty).toBeUndefined();
+    });
+
   });
 
 });
