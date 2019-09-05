@@ -52,7 +52,7 @@ describe('Item Component', () => {
 
   describe('Item Component Properties', () => {
 
-    it(`Should have an undefined 'images$:' before 'ngOnInit'`, () => {
+    it(`Should have an undefined 'images$' before 'ngOnInit'`, () => {
       const actualImages$Property = itemComponent.images$;
 
       expect(actualImages$Property).toBeUndefined();
