@@ -8,6 +8,7 @@ import { MatSnackBarModule } from '@angular/material';
 
 import { Router } from '@angular/router';
 import { SESSION_STORAGE } from 'angular-webstorage-service';
+import { ItemForm } from 'src/app/forms/ItemForm';
 
 describe('Item Component', () => {
 
@@ -63,6 +64,13 @@ describe('Item Component', () => {
       const actualDataProperty = itemComponent.data;
 
       expect(actualDataProperty).toEqual(expectedDataProperty);
+    });
+
+    it(`Should have a defined 'items' property`, () => {
+      const expectedItemsProperty: ItemForm[] = [];
+      const actualItemsProperty = itemComponent.items;
+
+      expect(actualItemsProperty).toEqual(expectedItemsProperty);
     });
 
   });
