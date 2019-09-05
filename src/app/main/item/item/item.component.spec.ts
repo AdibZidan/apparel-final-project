@@ -58,6 +58,13 @@ describe('Item Component', () => {
       expect(actualImages$Property).toBeUndefined();
     });
 
+    it(`Should have a defined 'data' property`, () => {
+      const expectedDataProperty = {};
+      const actualDataProperty = itemComponent.data;
+
+      expect(actualDataProperty).toEqual(expectedDataProperty);
+    });
+
   });
 
 });
