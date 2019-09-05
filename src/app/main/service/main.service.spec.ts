@@ -10,8 +10,7 @@ describe('Main Service', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientModule]
-    })
-      .compileComponents();
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -27,6 +26,17 @@ describe('Main Service', () => {
     expect(mainService
       instanceof MainService)
       .toBeTruthy();
+  });
+
+  describe('Main Service Properties', () => {
+
+    it(`Should have a defined 'url' property`, () => {
+      const expectedURLProperty = 'http://localhost:3000/items';
+      const actualURLProperty = mainService.url;
+
+      expect(actualURLProperty).toBe(expectedURLProperty);
+    });
+
   });
 
 });
