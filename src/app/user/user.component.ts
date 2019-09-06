@@ -10,7 +10,7 @@ import { SESSION_STORAGE, WebStorageService } from 'angular-webstorage-service';
 
 export class UserComponent implements OnInit {
 
-  public username: string;
+  public userName: string;
 
   constructor(
     @Inject(SESSION_STORAGE)
@@ -18,7 +18,7 @@ export class UserComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.username = this.getDataFromSession('username');
+    this.userName = this.getDataFromSession('username');
   }
 
   public getDataFromSession(key: string): string {
