@@ -28,4 +28,15 @@ describe('Admin Service', () => {
       .toBeTruthy();
   });
 
+  describe('Admin Service Properties', () => {
+
+    it(`Should have a defined 'url' property`, () => {
+      const expectedURLProperty = 'http://localhost:3000/items';
+      const actualURLProperty = adminService.url;
+
+      expect(actualURLProperty).toEqual(expectedURLProperty);
+    });
+
+  });
+
 });
