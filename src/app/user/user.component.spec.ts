@@ -61,7 +61,7 @@ describe('User Component', () => {
 
   describe('User Component Properties', () => {
 
-    it(`Should have an undefined 'userName' propery before 'ngOnInit'`, () => {
+    it(`Should have an undefined 'userName' property before 'ngOnInit'`, () => {
       const actualUserNameProperty = userComponent.userName;
 
       expect(actualUserNameProperty).toBeUndefined();
