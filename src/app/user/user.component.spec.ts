@@ -69,4 +69,20 @@ describe('User Component', () => {
 
   });
 
+  describe('User Component HTML', () => {
+
+    let divTag: HTMLDivElement;
+    let h3Tag: HTMLHeadingElement;
+    let spanTag: HTMLSpanElement;
+    let mainTag: HTMLDivElement;
+
+    beforeEach(() => {
+      divTag = htmlElement.querySelector('div.catalogue');
+      h3Tag = htmlElement.querySelector('h3.test');
+      spanTag = htmlElement.querySelector('span.userName');
+      mainTag = htmlElement.querySelector('div app-main');
+    });
+
+  });
+
 });
