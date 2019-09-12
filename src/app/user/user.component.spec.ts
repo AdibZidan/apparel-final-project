@@ -88,6 +88,13 @@ describe('User Component', () => {
       expect(divTag).toBeTruthy();
     });
 
+    it(`Should contain an h3 tag with the class-name of 'test' in the 'div' tag`, () => {
+      expect(h3Tag).toBeDefined();
+      expect(h3Tag).toBeTruthy();
+
+      expect(divTag.contains(h3Tag)).toBeTruthy();
+    });
+
   });
 
 });
