@@ -83,6 +83,11 @@ describe('User Component', () => {
       mainTag = htmlElement.querySelector('div app-main');
     });
 
+    it(`Should contain a div tag with the class-name of 'catalogue'`, () => {
+      expect(divTag).toBeDefined();
+      expect(divTag).toBeTruthy();
+    });
+
   });
 
 });
