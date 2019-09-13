@@ -95,6 +95,13 @@ describe('User Component', () => {
       expect(divTag.contains(h3Tag)).toBeTruthy();
     });
 
+    it(`Should contain 'app-main' tag in the 'div' tag,`, () => {
+      expect(mainTag).toBeDefined();
+      expect(mainTag).toBeTruthy();
+
+      expect(divTag.contains(mainTag)).toBeTruthy();
+    });
+
   });
 
 });
