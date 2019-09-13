@@ -10,7 +10,7 @@ import { MainComponent } from '../main/main.component';
 import { CatalogueComponent } from '../main/catalogue/catalogue/catalogue.component';
 import { ItemComponent } from '../main/item/item/item.component';
 
-import { SESSION_STORAGE } from 'angular-webstorage-service';
+import { SESSION_STORAGE, WebStorageService } from 'angular-webstorage-service';
 import { Router } from '@angular/router';
 
 describe('User Component', () => {
@@ -20,6 +20,8 @@ describe('User Component', () => {
 
   let debugElement: DebugElement;
   let htmlElement: HTMLElement;
+
+  let storage: WebStorageService;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -46,6 +48,8 @@ describe('User Component', () => {
 
     debugElement = userFixture.debugElement;
     htmlElement = debugElement.nativeElement;
+
+    storage = TestBed.get(SESSION_STORAGE);
   });
 
   it('Should exist/be defined', () => {
@@ -93,6 +97,20 @@ describe('User Component', () => {
       expect(h3Tag).toBeTruthy();
 
       expect(divTag.contains(h3Tag)).toBeTruthy();
+    });
+
+    it(`Should contain span tag with the class name of 'userName' in the 'div' tag,`, () => {
+      expect(spanTag).toBeDefined();
+      expect(spanTag).toBeTruthy();
+
+      expect(divTag.contains(spanTag)).toBeTruthy();
+
+      storage.set('Adib', 1);
+
+      const expectedSpanTagHTML = 'Adib';
+      const actualSpanTagHTML: string = spanTag.innerHTML.trim();
+
+      expect(actualSpanTagHTML).toEqual(expectedSpanTagHTML);
     });
 
     it(`Should contain 'app-main' tag in the 'div' tag,`, () => {
