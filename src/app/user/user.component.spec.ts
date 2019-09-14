@@ -36,7 +36,7 @@ describe('User Component', () => {
         ItemComponent
       ],
       providers: [
-        { provide: SESSION_STORAGE },
+        { provide: SESSION_STORAGE, useValue: 'Adib' },
         { provide: Router }
       ]
     }).compileComponents();
@@ -100,12 +100,14 @@ describe('User Component', () => {
     });
 
     it(`Should contain span tag with the class name of 'userName' in the 'div' tag,`, () => {
+      spyOn(userComponent, 'getDataFromSession').and.returnValue('Adib');
+
+      userFixture.detectChanges();
+
       expect(spanTag).toBeDefined();
       expect(spanTag).toBeTruthy();
 
       expect(divTag.contains(spanTag)).toBeTruthy();
-
-      storage.set('Adib', 1);
 
       const expectedSpanTagHTML = 'Adib';
       const actualSpanTagHTML: string = spanTag.innerHTML.trim();
