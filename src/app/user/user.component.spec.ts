@@ -10,7 +10,7 @@ import { MainComponent } from '../main/main.component';
 import { CatalogueComponent } from '../main/catalogue/catalogue/catalogue.component';
 import { ItemComponent } from '../main/item/item/item.component';
 
-import { SESSION_STORAGE, WebStorageService } from 'angular-webstorage-service';
+import { SESSION_STORAGE } from 'angular-webstorage-service';
 import { Router } from '@angular/router';
 
 describe('User Component', () => {
