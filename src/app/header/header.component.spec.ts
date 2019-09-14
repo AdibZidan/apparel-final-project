@@ -47,8 +47,6 @@ describe('Header Component', () => {
 
     debugElement = headerFixture.debugElement;
     htmlElement = debugElement.nativeElement;
-
-    headerFixture.detectChanges();
   });
 
   it('Should exist/be defined', () => {
