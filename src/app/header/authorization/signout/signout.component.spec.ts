@@ -23,6 +23,8 @@ describe('Sign Out Component', () => {
 
     debugElement = signoutFixture.debugElement;
     htmlElement = debugElement.nativeElement;
+
+    signoutFixture.detectChanges();
   });
 
   it('Should exist/be defined', () => {
