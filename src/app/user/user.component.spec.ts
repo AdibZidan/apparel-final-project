@@ -21,8 +21,6 @@ describe('User Component', () => {
   let debugElement: DebugElement;
   let htmlElement: HTMLElement;
 
-  let storage: WebStorageService;
-
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
@@ -48,8 +46,6 @@ describe('User Component', () => {
 
     debugElement = userFixture.debugElement;
     htmlElement = debugElement.nativeElement;
-
-    storage = TestBed.get(SESSION_STORAGE);
   });
 
   it('Should exist/be defined', () => {
