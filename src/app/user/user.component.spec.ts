@@ -36,7 +36,7 @@ describe('User Component', () => {
         ItemComponent
       ],
       providers: [
-        { provide: SESSION_STORAGE, useValue: 'Adib' },
+        { provide: SESSION_STORAGE },
         { provide: Router }
       ]
     }).compileComponents();
@@ -69,7 +69,6 @@ describe('User Component', () => {
     userFixture.detectChanges();
 
     expect(userComponent.getDataFromSession).toHaveBeenCalledWith('username');
-
   });
 
   describe('User Component Properties', () => {
