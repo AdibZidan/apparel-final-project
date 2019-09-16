@@ -26,4 +26,10 @@ describe('Authentication Service', () => {
     expect(authenticationService.isLoggedIn()).toBe(true);
   });
 
+  it(`Should spyOn 'isLoggedIn' & return 'false'`, () => {
+    spyOn(authenticationService, 'isLoggedIn').and.returnValue(false);
+
+    expect(authenticationService.isLoggedIn()).toBe(false);
+  });
+
 });
