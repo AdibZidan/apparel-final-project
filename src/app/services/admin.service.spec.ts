@@ -3,9 +3,8 @@ import { TestBed, async } from '@angular/core/testing';
 
 import { HttpTestingController, TestRequest, HttpClientTestingModule } from '@angular/common/http/testing';
 
-import { ItemForm } from '../forms/ItemForm';
-
 import { itemMock } from '../mocks/item-mock';
+import { ItemForm } from '../forms/ItemForm';
 
 describe('Admin Service', () => {
 
@@ -38,11 +37,9 @@ describe('Admin Service', () => {
   });
 
   it(`Should add an item via the 'POST' request`, () => {
-    const item = itemMock;
-
-    adminService.sendItemToServer(item)
+    adminService.sendItemToServer(itemMock)
       .subscribe((mocked: ItemForm) => {
-        expect(mocked).toEqual(item);
+        expect(mocked).toEqual(itemMock);
       });
 
     const url = 'http://localhost:3000/items';
@@ -51,7 +48,7 @@ describe('Admin Service', () => {
 
     expect(method).toEqual('POST');
 
-    request.flush(item);
+    request.flush(itemMock);
   });
 
   describe('Admin Service Properties', () => {
