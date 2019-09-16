@@ -20,4 +20,10 @@ describe('Authentication Service', () => {
       .toBeTruthy();
   });
 
+  it(`Should spyOn 'isLoggedIn' & return 'true'`, () => {
+    spyOn(authenticationService, 'isLoggedIn').and.returnValue(true);
+
+    expect(authenticationService.isLoggedIn()).toBe(true);
+  });
+
 });
