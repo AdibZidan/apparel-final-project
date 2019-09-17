@@ -47,12 +47,12 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   public onSubmit(): void {
     if (this.logInForm.valid) {
-      this.credentials$ = this.getSignInCredientals();
+      this.credentials$ = this.getSignInCredentials();
       this.onClose();
     }
   }
 
-  public getSignInCredientals(): Subscription {
+  public getSignInCredentials(): Subscription {
     return this.loginService
       .sendSignInCredentials(this.logInForm.value)
       .subscribe(response => {
