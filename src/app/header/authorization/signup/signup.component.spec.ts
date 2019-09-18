@@ -49,10 +49,16 @@ describe('Sign Up Component', () => {
       .toBeTruthy();
   });
 
-  it(`Should return true if there are no spaces via 'noSpace' method`, () => {
+  it(`Should return false if there are no spaces via 'noSpace' method`, () => {
     const truthyCondition = signUpComponent.noSpace('NoSpace');
 
     expect(truthyCondition).toBe(false);
+  });
+
+  it(`Should return true if there are spaces via 'noSpace' method`, () => {
+    const falsyCondition = signUpComponent.noSpace('With space');
+
+    expect(falsyCondition).toBe(true);
   });
 
   describe('Sign Up Component Properties', () => {
