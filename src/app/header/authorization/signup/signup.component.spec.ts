@@ -49,6 +49,12 @@ describe('Sign Up Component', () => {
       .toBeTruthy();
   });
 
+  it(`Should return true if there are no spaces via 'noSpace' method`, () => {
+    const truthyCondition = signUpComponent.noSpace('NoSpace');
+
+    expect(truthyCondition).toBe(false);
+  });
+
   describe('Sign Up Component Properties', () => {
 
     it(`Should have an undefined 'formGroup' property before 'ngOnInit'`, () => {
