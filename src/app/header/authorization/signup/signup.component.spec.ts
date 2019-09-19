@@ -91,6 +91,12 @@ describe('Sign Up Component', () => {
     expect(falsyCondition).toBe(false);
   });
 
+  it(`Should return true if there are numbers via 'hasANumber' method`, () => {
+    const truthyCondition: boolean = signUpComponent.hasANumber('123');
+
+    expect(truthyCondition).toBe(true);
+  });
+
   describe('Sign Up Component Properties', () => {
 
     it(`Should have an undefined 'formGroup' property before 'ngOnInit'`, () => {
