@@ -97,7 +97,7 @@ describe('Sign Up Component', () => {
     expect(truthyCondition).toBe(true);
   });
 
-  it(`Should return false if there any special characters via 'noSpecialCharacters' method`, () => {
+  it(`Should return true if there any special characters via 'noSpecialCharacters' method`, () => {
     const specialCharacters: string[] = [
       '!', '@', '#', '$',
       '%', '^', '&', '*',
@@ -107,10 +107,16 @@ describe('Sign Up Component', () => {
     ];
 
     specialCharacters.forEach((specialCharacter: string) => {
-      expect(
-        signUpComponent.noSpecialCharacters
-          (specialCharacter)).toBe(true);
+      const truthyCondition = signUpComponent.noSpecialCharacters(specialCharacter);
+
+      expect(truthyCondition).toBe(true);
     });
+  });
+
+  it(`Should return false if there any special characters via 'noSpecialCharacters' method`, () => {
+    const falsyCondition = signUpComponent.noSpecialCharacters('');
+
+    expect(falsyCondition).toBe(false);
   });
 
   describe('Sign Up Component Properties', () => {
