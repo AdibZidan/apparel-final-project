@@ -79,6 +79,12 @@ describe('Sign Up Component', () => {
     expect(falsyCondition).toBe(false);
   });
 
+  it(`Should return true if there are upper-case letters via 'isUpperCased' method`, () => {
+    const truthyCondition: boolean = signUpComponent.isUpperCased('HI');
+
+    expect(truthyCondition).toBe(true);
+  });
+
   describe('Sign Up Component Properties', () => {
 
     it(`Should have an undefined 'formGroup' property before 'ngOnInit'`, () => {
