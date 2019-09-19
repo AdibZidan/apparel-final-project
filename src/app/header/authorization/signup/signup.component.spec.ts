@@ -68,9 +68,15 @@ describe('Sign Up Component', () => {
   });
 
   it(`Should return true if there are lower-case letters via 'isLowerCased' method`, () => {
-    const falsyCondition: boolean = signUpComponent.isLowerCased('hi!');
+    const truthyCondition: boolean = signUpComponent.isLowerCased('hi!');
 
-    expect(falsyCondition).toBe(true);
+    expect(truthyCondition).toBe(true);
+  });
+
+  it(`Should return false if there are no upper-case letters via 'isUpperCased' method`, () => {
+    const falsyCondition: boolean = signUpComponent.isUpperCased('hi');
+
+    expect(falsyCondition).toBe(false);
   });
 
   describe('Sign Up Component Properties', () => {
