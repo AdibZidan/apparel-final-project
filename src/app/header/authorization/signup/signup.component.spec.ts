@@ -113,7 +113,7 @@ describe('Sign Up Component', () => {
     });
   });
 
-  it(`Should return false if there any special characters via 'noSpecialCharacters' method`, () => {
+  it(`Should return false if there no special characters via 'noSpecialCharacters' method`, () => {
     const falsyCondition = signUpComponent.noSpecialCharacters('');
 
     expect(falsyCondition).toBe(false);
