@@ -85,6 +85,12 @@ describe('Sign Up Component', () => {
     expect(truthyCondition).toBe(true);
   });
 
+  it(`Should return false if there are no numbers via 'hasANumber' method`, () => {
+    const falsyCondition: boolean = signUpComponent.hasANumber('No');
+
+    expect(falsyCondition).toBe(false);
+  });
+
   describe('Sign Up Component Properties', () => {
 
     it(`Should have an undefined 'formGroup' property before 'ngOnInit'`, () => {
