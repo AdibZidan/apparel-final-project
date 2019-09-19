@@ -97,6 +97,22 @@ describe('Sign Up Component', () => {
     expect(truthyCondition).toBe(true);
   });
 
+  it(`Should return false if there any special characters via 'noSpecialCharacters' method`, () => {
+    const specialCharacters: string[] = [
+      '!', '@', '#', '$',
+      '%', '^', '&', '*',
+      '(', ')', ',', '.',
+      '?', '"', ':', '{',
+      '}', '<', '>'
+    ];
+
+    specialCharacters.forEach((specialCharacter: string) => {
+      expect(
+        signUpComponent.noSpecialCharacters
+          (specialCharacter)).toBe(true);
+    });
+  });
+
   describe('Sign Up Component Properties', () => {
 
     it(`Should have an undefined 'formGroup' property before 'ngOnInit'`, () => {
