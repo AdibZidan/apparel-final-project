@@ -59,12 +59,14 @@ describe('User Component', () => {
       .toBeTruthy();
   });
 
-  it(`Should spy & call 'getDataFromSession'`, () => {
-    spyOn(userComponent, 'getDataFromSession').and.returnValue('username');
+  it(`Should spyOn 'getDataFromSession' method`, () => {
+    spyOn(userComponent, 'getDataFromSession')
+      .and.returnValue('username');
 
     userFixture.detectChanges();
 
-    expect(userComponent.getDataFromSession).toHaveBeenCalledWith('username');
+    expect(userComponent.getDataFromSession)
+      .toHaveBeenCalledWith('username');
   });
 
   describe('User Component Properties', () => {
