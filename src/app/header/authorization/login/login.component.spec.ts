@@ -6,6 +6,7 @@ import { DebugElement } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatSnackBarModule, MatDialogRef } from '@angular/material';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { Router } from '@angular/router';
 import { SESSION_STORAGE } from 'angular-webstorage-service';
@@ -18,17 +19,19 @@ describe('LogIn Component', () => {
   let debugElement: DebugElement;
   let htmlElement: HTMLElement;
 
+  let router: Router;
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
         FormsModule,
         ReactiveFormsModule,
         HttpClientModule,
-        MatSnackBarModule
+        MatSnackBarModule,
+        RouterTestingModule
       ],
       declarations: [LoginComponent],
       providers: [
-        { provide: Router },
         { provide: MatDialogRef },
         { provide: SESSION_STORAGE }
       ]
@@ -41,6 +44,8 @@ describe('LogIn Component', () => {
 
     debugElement = loginFixture.debugElement;
     htmlElement = debugElement.nativeElement;
+
+    router = TestBed.get(Router);
   });
 
   it('Should exist/be defined', () => {
@@ -52,6 +57,14 @@ describe('LogIn Component', () => {
     expect(loginComponent
       instanceof LoginComponent)
       .toBeTruthy();
+  });
+
+  it(`Should load the user profile if 'user' input is given via 'loadProfile' method`, () => {
+    const navigateSpy = spyOn(router, 'navigate');
+
+    loginComponent.loadProfile('user');
+
+    expect(navigateSpy).toHaveBeenCalledWith(['/user']);
   });
 
   describe('LogIn Component Properties', () => {
