@@ -75,6 +75,12 @@ describe('LogIn Component', () => {
     expect(navigateSpy).toHaveBeenCalledWith(['/admin']);
   });
 
+  it(`Should load the main profile if nor 'user' or 'admin' input is given via 'loadProfile' method`, () => {
+    loginComponent.loadProfile('NotUserOrAdmin');
+
+    expect(navigateSpy).toHaveBeenCalledWith(['/main']);
+  });
+
   describe('LogIn Component Properties', () => {
 
     it(`Should have a defined 'credentials$' property`, () => {
