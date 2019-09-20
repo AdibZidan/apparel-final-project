@@ -2,7 +2,7 @@ import { AbstractControl } from '@angular/forms';
 
 export class PasswordVerifier {
 
-  static PasswordValidator(abstractControl: AbstractControl) {
+  public static PasswordValidator(abstractControl: AbstractControl): void {
     const password = abstractControl.get('password').value;
     const matchingPassword = abstractControl.get('matchingPassword').value;
 
