@@ -5,9 +5,21 @@ import { Injectable } from '@angular/core';
 export class AuthenticationService {
 
   public isLoggedIn(): boolean {
-    if (sessionStorage.getItem('authority') === '"user"' || sessionStorage.getItem('authority') === '"admin"') {
-      return !!sessionStorage.getItem('username');
+    if (this.isUserLoggedIn() || this.isAdminLoggedIn()) {
+      return this.getUserName();
     }
+  }
+
+  public isUserLoggedIn(): boolean {
+    return sessionStorage.getItem('authority') === '"user';
+  }
+
+  public isAdminLoggedIn(): boolean {
+    return sessionStorage.getItem('authority') === '"admin';
+  }
+
+  public getUserName(): boolean {
+    return !!sessionStorage.getItem('username');
   }
 
 }
