@@ -42,4 +42,8 @@ describe('Authentication Service', () => {
     expect(authenticationService.isAdminLoggedIn()).toBe(false);
   });
 
+  it(`Should return an initial falsy value via the 'getUserName' method`, () => {
+    expect(authenticationService.getUserName()).toBe(false);
+  });
+
 });
