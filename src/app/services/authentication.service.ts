@@ -11,11 +11,11 @@ export class AuthenticationService {
   }
 
   public isUserLoggedIn(): boolean {
-    return sessionStorage.getItem('authority') === '"user';
+    return sessionStorage.getItem('authority') === '"user"';
   }
 
   public isAdminLoggedIn(): boolean {
-    return sessionStorage.getItem('authority') === '"admin';
+    return sessionStorage.getItem('authority') === '"admin"';
   }
 
   public getUserName(): boolean {
