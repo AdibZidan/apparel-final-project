@@ -21,6 +21,8 @@ describe('LogIn Component', () => {
 
   let router: Router;
 
+  let navigateSpy;
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
@@ -46,6 +48,8 @@ describe('LogIn Component', () => {
     htmlElement = debugElement.nativeElement;
 
     router = TestBed.get(Router);
+
+    navigateSpy = spyOn(router, 'navigate');
   });
 
   it('Should exist/be defined', () => {
@@ -60,11 +64,15 @@ describe('LogIn Component', () => {
   });
 
   it(`Should load the user profile if 'user' input is given via 'loadProfile' method`, () => {
-    const navigateSpy = spyOn(router, 'navigate');
-
     loginComponent.loadProfile('user');
 
     expect(navigateSpy).toHaveBeenCalledWith(['/user']);
+  });
+
+  it(`Should load the admin profile if 'admin' input is given via 'loadProfile' method`, () => {
+    loginComponent.loadProfile('admin');
+
+    expect(navigateSpy).toHaveBeenCalledWith(['/admin']);
   });
 
   describe('LogIn Component Properties', () => {
