@@ -21,22 +21,25 @@ describe('Authentication Service', () => {
   });
 
   it(`Should spyOn 'isLoggedIn' & return 'true'`, () => {
-    spyOn(authenticationService, 'isLoggedIn').and.returnValue(true);
+    spyOn(authenticationService, 'isLoggedIn')
+      .and.returnValue(true);
 
     expect(authenticationService.isLoggedIn()).toBe(true);
   });
 
   it(`Should spyOn 'isLoggedIn' & return 'false'`, () => {
-    spyOn(authenticationService, 'isLoggedIn').and.returnValue(false);
+    spyOn(authenticationService, 'isLoggedIn')
+      .and.returnValue(false);
 
     expect(authenticationService.isLoggedIn()).toBe(false);
   });
 
-  it(`Should spyOn 'isUserLoggedIn' method`, () => {
-    spyOn(authenticationService, 'isUserLoggedIn')
-      .and.callThrough();
-
+  it(`Should return an initial falsy value via the 'isUserLoggedIn' method`, () => {
     expect(authenticationService.isUserLoggedIn()).toBe(false);
+  });
+
+  it(`Should return an initial falsy value via the 'isAdminLoggedIn' method`, () => {
+    expect(authenticationService.isAdminLoggedIn()).toBe(false);
   });
 
 });
