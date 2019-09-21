@@ -35,7 +35,7 @@ describe('Basket Service', () => {
       .toBeTruthy();
   });
 
-  it(`Should reserveItem via 'PUT' request`, () => {
+  it(`Should reserve an item via a 'PUT' request`, () => {
     basketService
       .reserveItem(reservedItemMock)
       .subscribe((itemToReserve: ReserveForm) => {
