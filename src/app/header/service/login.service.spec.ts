@@ -1,7 +1,10 @@
 import { LoginService } from './login.service';
 import { TestBed, async } from '@angular/core/testing';
 
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { HttpClientTestingModule, HttpTestingController, TestRequest } from '@angular/common/http/testing';
+
+import { loginFormMock } from 'src/app/mocks/login-form-mock';
+import { LoginForm } from '../authorization/login/LoginForm';
 
 describe('LogIn Service', () => {
 
@@ -30,6 +33,22 @@ describe('LogIn Service', () => {
     expect(loginService
       instanceof LoginService)
       .toBeTruthy();
+  });
+
+  it(`Should send sign in credentials via a 'POST' request`, () => {
+    loginService
+      .sendSignInCredentials(loginFormMock)
+      .subscribe((credentialsToSend: LoginForm) => {
+        expect(credentialsToSend).toEqual(loginFormMock);
+      });
+
+    const url = 'http://localhost:3000/signin';
+    const request: TestRequest = httpTestingController.expectOne(url);
+    const method: string = request.request.method;
+
+    expect(method).toEqual('POST');
+
+    request.flush(loginFormMock);
   });
 
 });
