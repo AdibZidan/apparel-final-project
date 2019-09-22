@@ -37,7 +37,7 @@ describe('LogIn Service', () => {
 
   it(`It should have a 'signInURL'`, () => {
     const expectedSignInURL = 'http://localhost:3000/signin';
-    const actualSignInURL = loginService.signURL;
+    const actualSignInURL = loginService.signInURL;
 
     expect(actualSignInURL).toEqual(expectedSignInURL);
   });
