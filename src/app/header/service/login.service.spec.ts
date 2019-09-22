@@ -35,6 +35,13 @@ describe('LogIn Service', () => {
       .toBeTruthy();
   });
 
+  it(`It should have a 'signInURL'`, () => {
+    const expectedSignInURL = 'http://localhost:3000/signin';
+    const actualSignInURL = loginService.signURL;
+
+    expect(actualSignInURL).toEqual(expectedSignInURL);
+  });
+
   it(`Should send sign in credentials via a 'POST' request`, () => {
     loginService
       .sendSignInCredentials(loginFormMock)
