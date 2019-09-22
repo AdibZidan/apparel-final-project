@@ -16,11 +16,11 @@ const httpOptions = {
 export class LoginService {
 
   // private url = 'http://localhost:8080/user/login';
-  private url = 'http://localhost:3000/signin';
+  public signURL = 'http://localhost:3000/signin';
 
   constructor(private httpClient: HttpClient) { }
 
-  sendSignInCredentials(input: LoginForm): Observable<any> {
-    return this.httpClient.post<LoginForm>(this.url, input, httpOptions);
+  sendSignInCredentials(credentialsToSend: LoginForm): Observable<any> {
+    return this.httpClient.post<LoginForm>(this.signURL, credentialsToSend, httpOptions);
   }
 }
