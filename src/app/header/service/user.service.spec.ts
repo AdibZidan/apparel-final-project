@@ -32,4 +32,11 @@ describe('User Service', () => {
       .toBeTruthy();
   });
 
+  it(`Should have a defined 'backEndLocalURL' property`, () => {
+    const expectedBackEndLocalURL = 'http://localhost:3000/signup';
+    const actualBackEndLocalURL: string = userService.backEndLocalUrl;
+
+    expect(actualBackEndLocalURL).toEqual(expectedBackEndLocalURL);
+  });
+
 });
