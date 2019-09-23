@@ -11,13 +11,13 @@ import { SignUpForm } from '../../forms/SignUpForm';
 export class UserService {
 
   // private backEndLocalUrl: string = 'http://localhost:8080/user/signup';
-  private backEndLocalUrl: string = 'http://localhost:3000/signup';
+  private backEndLocalUrl = 'http://localhost:3000/signup';
 
   constructor(private httpClient: HttpClient) { }
 
-  addFormToBackEnd(form: SignUpForm): Observable<any> {
+  addFormToBackEnd(formToAdd: SignUpForm): Observable<any> {
     return this.httpClient
-      .post<SignUpForm>(this.backEndLocalUrl, form)
+      .post<SignUpForm>(this.backEndLocalUrl, formToAdd)
       .pipe(tap(() => console.log('Added your form to Back-End!')));
   }
 }
