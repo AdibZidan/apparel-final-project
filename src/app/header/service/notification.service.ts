@@ -14,7 +14,7 @@ export class NotificationService {
 
   constructor(private matSnackBar: MatSnackBar) { }
 
-  public onSuccess(message: string) {
+  public onSuccess(message: string): void {
     this.matSnackBar.open(message, 'OK', this.configuration);
   }
 
