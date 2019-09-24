@@ -1,7 +1,7 @@
 import { UserService } from './user.service';
 import { async, TestBed } from '@angular/core/testing';
 
-import { HttpTestingController, HttpClientTestingModule } from '@angular/common/http/testing';
+import { HttpTestingController, HttpClientTestingModule, TestRequest } from '@angular/common/http/testing';
 import { signUpFormMock } from 'src/app/mocks/sign-up-form-mock';
 import { SignUpForm } from 'src/app/forms/SignUpForm';
 
@@ -49,7 +49,7 @@ describe('User Service', () => {
       });
 
     const backEndLocalURL = 'http://localhost:3000/signup';
-    const request = httpTestingController.expectOne(backEndLocalURL);
+    const request: TestRequest = httpTestingController.expectOne(backEndLocalURL);
     const method: string = request.request.method;
 
     expect(method).toEqual('POST');
