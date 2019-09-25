@@ -55,7 +55,7 @@ describe('Admin Service', () => {
 
     it(`Should have a defined 'url' property`, () => {
       const expectedURLProperty = 'http://localhost:3000/items';
-      const actualURLProperty = adminService.url;
+      const actualURLProperty: string = adminService.url;
 
       expect(actualURLProperty).toEqual(expectedURLProperty);
     });
