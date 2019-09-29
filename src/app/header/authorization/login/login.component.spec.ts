@@ -95,8 +95,8 @@ describe('LogIn Component', () => {
       expect(actualLogInFormProperty).toBeUndefined();
     });
 
-    it(`Should have an undefined 'userName' property before 'ngOnInit'`, () => {
-      const actualUserNameProperty = loginComponent.userName;
+    it(`Should have an undefined 'username' property before 'ngOnInit'`, () => {
+      const actualUserNameProperty = loginComponent.username;
 
       expect(actualUserNameProperty).toBeUndefined();
     });

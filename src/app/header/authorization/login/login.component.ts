@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   public credentials$: Subscription = new Subscription();
   public logInForm: FormGroup;
-  public userName: string;
+  public username: string;
 
   constructor(
     private loginService: LoginService,
@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   public onLogInForm(): void {
     this.logInForm = new FormGroup({
-      userName: new FormControl(''),
+      username: new FormControl(''),
       password: new FormControl('')
     });
   }
@@ -56,13 +56,13 @@ export class LoginComponent implements OnInit, OnDestroy {
     return this.loginService
       .sendSignInCredentials(this.logInForm.value)
       .subscribe(response => {
-        if (response.message === 'Success') {
-          this.userName = response.user.username;
-          this.loadProfile(response.user.authority);
-          this.saveToSession('username', response.user.username);
-          this.saveToSession('userUuId', response.user.userUuId);
-          this.saveToSession('authority', response.user.authority);
-          this.saveToSession('basket', response.user.basket);
+        if (response.message === 'Success!') {
+          this.username = response.correctUser.username;
+          this.loadProfile(response.correctUser.authority);
+          this.saveToSession('username', response.correctUser.username);
+          this.saveToSession('userUuId', response.correctUser.userUuId);
+          this.saveToSession('authority', response.correctUser.authority);
+          this.saveToSession('basket', response.correctUser.basket);
         } else {
           this.notificationService.onSuccess('Please check your username or password.');
         }
@@ -88,7 +88,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   getDataFromSession(key: string): void {
-    this.userName = this.webStorageService.get(key);
+    this.username = this.webStorageService.get(key);
   }
 
 }
