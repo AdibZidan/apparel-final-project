@@ -35,8 +35,8 @@ describe('LogIn Service', () => {
       .toBeTruthy();
   });
 
-  it(`It should have a 'signInURL'`, () => {
-    const expectedSignInURL = 'http://localhost:3000/signin';
+  it(`Should have a 'signInURL'`, () => {
+    const expectedSignInURL = 'http://localhost:3000/sign-in';
     const actualSignInURL = loginService.signInURL;
 
     expect(actualSignInURL).toEqual(expectedSignInURL);
@@ -49,7 +49,7 @@ describe('LogIn Service', () => {
         expect(credentialsToSend).toEqual(loginFormMock);
       });
 
-    const url = 'http://localhost:3000/signin';
+    const url = 'http://localhost:3000/sign-in';
     const request: TestRequest = httpTestingController.expectOne(url);
     const method: string = request.request.method;
 
