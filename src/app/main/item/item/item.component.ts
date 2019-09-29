@@ -57,7 +57,7 @@ export class ItemComponent implements OnInit {
       this.basketService
         .reserveItem(this.data)
         .subscribe(response => {
-          if (response.message === 'Success') {
+          if (response.message === 'Success!') {
             item.booked = !item.booked;
             if (item.booked) {
               item.userUuId = this.webStorageService.get('userUuId');
