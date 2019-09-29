@@ -35,7 +35,7 @@ describe('User Service', () => {
   });
 
   it(`Should have a defined 'backEndLocalURL' property`, () => {
-    const expectedBackEndLocalURL = 'http://localhost:3000/signup';
+    const expectedBackEndLocalURL = 'http://localhost:3000/sign-up';
     const actualBackEndLocalURL: string = userService.backEndLocalUrl;
 
     expect(actualBackEndLocalURL).toEqual(expectedBackEndLocalURL);
@@ -48,7 +48,7 @@ describe('User Service', () => {
         expect(formToAdd).toEqual(signUpFormMock);
       });
 
-    const backEndLocalURL = 'http://localhost:3000/signup';
+    const backEndLocalURL = 'http://localhost:3000/sign-up';
     const request: TestRequest = httpTestingController.expectOne(backEndLocalURL);
     const method: string = request.request.method;
 
