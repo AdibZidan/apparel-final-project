@@ -16,7 +16,7 @@ const httpOptions = {
 export class LoginService {
 
   // private url = 'http://localhost:8080/user/login';
-  public signInURL = 'http://localhost:3000/signin';
+  public signInURL = 'http://localhost:3000/sign-in';
 
   constructor(private httpClient: HttpClient) { }
 

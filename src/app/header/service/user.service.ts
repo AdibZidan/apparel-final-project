@@ -11,7 +11,7 @@ import { SignUpForm } from '../../forms/SignUpForm';
 export class UserService {
 
   // private backEndLocalUrl: string = 'http://localhost:8080/user/signup';
-  public backEndLocalUrl = 'http://localhost:3000/signup';
+  public backEndLocalUrl = 'http://localhost:3000/sign-up';
 
   constructor(private httpClient: HttpClient) { }
 
