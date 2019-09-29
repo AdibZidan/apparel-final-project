@@ -89,7 +89,7 @@ export class SignupComponent implements OnInit {
       this.userService
         .addFormToBackEnd(this.formGroup.value)
         .subscribe(response => {
-          if (response.message === 'Success') {
+          if (response.message === 'Success!') {
             this.notificationService.onSuccess('Your account was registered!');
           } else if (response.message === 'Username is taken') {
             this.notificationService.onSuccess('This username is not available.');
