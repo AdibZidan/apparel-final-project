@@ -57,7 +57,7 @@ export class AdminComponent implements OnInit {
       this.adminService
         .sendItemToServer(this.formData)
         .subscribe(response => {
-          if (response.message === 'Success') {
+          if (response.message === 'Success!') {
             this.notificationService.onSuccess('The file has been uploaded!');
           } else {
             this.notificationService.onSuccess('Connection failed, please try again!');
