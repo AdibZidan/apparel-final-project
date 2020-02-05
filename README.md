@@ -1,27 +1,34 @@
-# Apparel
+# Apparel - Humanitarian Clothing Portal
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.1.
+## Introduction
 
-## Development server
+I had the opportunity to work with **6** wonderful colleagues and we've created an application called **Apparel - Humanitarian Clothing Portal**.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+The team consisted of **7** total members; **2** Product Owners, **3** Back-End & **2** Front-End developers.
 
-## Code scaffolding
+**Apparel** is a web-application where a humanitarian organization can offer clothes to those in need.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+The humanitarian organization receives donated clothes and the users of the application can select the clothes they need from the catalogue and mark them as reserved.
 
-## Build
+The users can then go to the **Apparel** warehouse and receive them.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+In the future, volunteers could sign up to deliver these apparels to the location of the person in need via geolocation.
 
-## Running unit tests
+It was developed with a microservice infrastructure and Scrum.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## My Role After The Project Was Over
+Since I'm a very big advocate of learning new technologies and enhancing my programming skills. I took the entitative to fully refactor this project and add unit tests with my own coding style. I've come a long way ever since refactoring this project as I've gained more experience working on real projects as a [*FullStack Software Developer*](https://www.linkedin.com/in/adibzidan).
 
-## Running end-to-end tests
+## What I've Learned
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Since it was our final project at [The New Austrian Coding School](https://www.newaustriancodingschool.at/).
 
-## Further help
+I've learned to:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+* Work with a team in an agile environment
+* Adapt and resolve challenges by researching new topics and working with my colleagues
+* Handle responsibility and over achieve with the given tasks
+* **Angular** and **NodeJS** in depth
+* *and many more*
+
+*Updated on the 5th of February 2020 @ 9:15 P.M*
